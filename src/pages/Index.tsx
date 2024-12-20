@@ -109,16 +109,59 @@ const Index = () => {
           </div>
           <div className="space-y-4 text-left">
             <div>
-              <h3 className="text-base md:text-lg font-semibold">MicroMission</h3>
+              <a 
+                href="https://github.com/yourusername/micromission" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-base md:text-lg font-semibold hover:text-blue-400 transition-colors"
+              >
+                MicroMission
+              </a>
               <p className="text-sm md:text-base text-gray-300">Web3 SaaS platform for microtask outsourcing with Solana-based payments</p>
             </div>
             <div>
-              <h3 className="text-base md:text-lg font-semibold">DStorage</h3>
+              <a 
+                href="https://github.com/yourusername/dstorage" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-base md:text-lg font-semibold hover:text-blue-400 transition-colors"
+              >
+                DStorage
+              </a>
               <p className="text-sm md:text-base text-gray-300">Ethereum-based decentralized file storage system using IPFS</p>
             </div>
             <div>
-              <h3 className="text-base md:text-lg font-semibold">Perpetual Protocol</h3>
+              <a 
+                href="https://github.com/yourusername/perpetual" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-base md:text-lg font-semibold hover:text-blue-400 transition-colors"
+              >
+                Perpetual Protocol
+              </a>
               <p className="text-sm md:text-base text-gray-300">Decentralized perpetual futures protocol with liquidity management</p>
+            </div>
+            <div>
+              <a 
+                href="https://github.com/yourusername/defi-vault" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-base md:text-lg font-semibold hover:text-blue-400 transition-colors"
+              >
+                DeFi Vault
+              </a>
+              <p className="text-sm md:text-base text-gray-300">Smart contract-based yield optimization protocol with auto-compounding features</p>
+            </div>
+            <div>
+              <a 
+                href="https://github.com/yourusername/nft-marketplace" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-base md:text-lg font-semibold hover:text-blue-400 transition-colors"
+              >
+                NFT Marketplace
+              </a>
+              <p className="text-sm md:text-base text-gray-300">Decentralized marketplace for NFT trading with royalty management system</p>
             </div>
           </div>
         </div>
