@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Github, Linkedin, Mail, Twitter, Briefcase, GraduationCap, Code, Award, BookOpen } from "lucide-react";
+import { portfolioData } from "../data/portfolio";
 
 const Index = () => {
   const [time, setTime] = useState(new Date());
@@ -16,13 +17,13 @@ const Index = () => {
         <div className="bento-card col-span-1 md:col-span-2">
           <h2 className="text-sm text-gray-400 mb-2">welcome</h2>
           <h1 className="text-2xl md:text-4xl font-bold mb-4">
-            Hi, I'm <span className="text-blue-400">Rohith Narahari</span>
+            Hi, I'm <span className="text-blue-400">{portfolioData.profile.name}</span>
           </h1>
           <p className="text-base md:text-lg text-gray-300">
-            Experienced Blockchain Developer with expertise in web3, cryptography, and decentralized applications
+            {portfolioData.profile.description}
           </p>
           <div className="mt-4 text-sm md:text-base text-gray-400">
-            <p className="break-words">rohit.narahari@gmail.com | +91 9989161305</p>
+            <p className="break-words">{portfolioData.profile.email} | {portfolioData.profile.phone}</p>
           </div>
         </div>
 
@@ -41,9 +42,9 @@ const Index = () => {
             <h2 className="text-xl md:text-2xl font-bold">Education</h2>
           </div>
           <div className="text-left">
-            <h3 className="text-base md:text-lg font-semibold">Amrita Vishwa Vidyapeetham</h3>
-            <p className="text-sm md:text-base text-gray-400">B.Tech In Computer Science And Engineering</p>
-            <p className="text-sm md:text-base text-blue-400">GPA: 8.2</p>
+            <h3 className="text-base md:text-lg font-semibold">{portfolioData.education.institution}</h3>
+            <p className="text-sm md:text-base text-gray-400">{portfolioData.education.degree}</p>
+            <p className="text-sm md:text-base text-blue-400">GPA: {portfolioData.education.gpa}</p>
           </div>
         </div>
 
@@ -56,19 +57,19 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
             <div>
               <h3 className="font-semibold text-blue-400 text-sm md:text-base">Programming Languages</h3>
-              <p className="text-sm md:text-base text-gray-300">Solidity, Python, Javascript, Typescript, C, Java</p>
+              <p className="text-sm md:text-base text-gray-300">{portfolioData.skills.programmingLanguages}</p>
             </div>
             <div>
               <h3 className="font-semibold text-blue-400 text-sm md:text-base">Database Management</h3>
-              <p className="text-sm md:text-base text-gray-300">PostgreSQL, GraphQL</p>
+              <p className="text-sm md:text-base text-gray-300">{portfolioData.skills.databaseManagement}</p>
             </div>
             <div>
               <h3 className="font-semibold text-blue-400 text-sm md:text-base">Software / Tools</h3>
-              <p className="text-sm md:text-base text-gray-300">Cryptography, Ethereum, Polygon, Hardhat, Foundry, Ethers, Web3js</p>
+              <p className="text-sm md:text-base text-gray-300">{portfolioData.skills.softwareTools}</p>
             </div>
             <div>
               <h3 className="font-semibold text-blue-400 text-sm md:text-base">Operating Systems</h3>
-              <p className="text-sm md:text-base text-gray-300">Linux, Windows</p>
+              <p className="text-sm md:text-base text-gray-300">{portfolioData.skills.operatingSystems}</p>
             </div>
           </div>
         </div>
@@ -80,24 +81,18 @@ const Index = () => {
             <h2 className="text-xl md:text-2xl font-bold">Professional Experience</h2>
           </div>
           <div className="space-y-6 text-left">
-            <div>
-              <h3 className="text-lg md:text-xl font-semibold">Blockchain Lead</h3>
-              <p className="text-sm md:text-base text-blue-400">Vivid Infotech, Chennai, India | 01/2023 – 12/2023</p>
-              <ul className="list-disc list-inside text-sm md:text-base text-gray-300 mt-2">
-                <li>Developed and maintained NFT marketplace with secure smart contracts</li>
-                <li>Managed overall workflow and delivered high-quality code</li>
-              </ul>
-              <p className="text-xs md:text-sm text-gray-400 mt-2">Technologies: Solidity, Ethereum, NFTs, Blockchain, Smart Contracts, NodeJS, PostgreSQL, ReactJS</p>
-            </div>
-            <div>
-              <h3 className="text-lg md:text-xl font-semibold">Blockchain Developer</h3>
-              <p className="text-sm md:text-base text-blue-400">Arcana Networks | 08/2021 – 11/2022</p>
-              <ul className="list-disc list-inside text-sm md:text-base text-gray-300 mt-2">
-                <li>Developed blockchain wallet using DKG and secure dApp storage solutions</li>
-                <li>Implemented interoperability solutions using Chainbridge and LayerZero</li>
-              </ul>
-              <p className="text-xs md:text-sm text-gray-400 mt-2">Technologies: Solidity, DKG, Chainbridge, LayerZero, NuCypher, Blockchain, Web3, NodeJS, TypeScript</p>
-            </div>
+            {portfolioData.experience.map((exp, index) => (
+              <div key={index}>
+                <h3 className="text-lg md:text-xl font-semibold">{exp.title}</h3>
+                <p className="text-sm md:text-base text-blue-400">{exp.company} | {exp.period}</p>
+                <ul className="list-disc list-inside text-sm md:text-base text-gray-300 mt-2">
+                  {exp.description.map((desc, i) => (
+                    <li key={i}>{desc}</li>
+                  ))}
+                </ul>
+                <p className="text-xs md:text-sm text-gray-400 mt-2">Technologies: {exp.technologies}</p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -108,61 +103,19 @@ const Index = () => {
             <h2 className="text-xl md:text-2xl font-bold">Featured Projects</h2>
           </div>
           <div className="space-y-4 text-left">
-            <div>
-              <a 
-                href="https://github.com/yourusername/micromission" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-base md:text-lg font-semibold hover:text-blue-400 transition-colors"
-              >
-                MicroMission
-              </a>
-              <p className="text-sm md:text-base text-gray-300">Web3 SaaS platform for microtask outsourcing with Solana-based payments</p>
-            </div>
-            <div>
-              <a 
-                href="https://github.com/yourusername/dstorage" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-base md:text-lg font-semibold hover:text-blue-400 transition-colors"
-              >
-                DStorage
-              </a>
-              <p className="text-sm md:text-base text-gray-300">Ethereum-based decentralized file storage system using IPFS</p>
-            </div>
-            <div>
-              <a 
-                href="https://github.com/yourusername/perpetual" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-base md:text-lg font-semibold hover:text-blue-400 transition-colors"
-              >
-                Perpetual Protocol
-              </a>
-              <p className="text-sm md:text-base text-gray-300">Decentralized perpetual futures protocol with liquidity management</p>
-            </div>
-            <div>
-              <a 
-                href="https://github.com/yourusername/defi-vault" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-base md:text-lg font-semibold hover:text-blue-400 transition-colors"
-              >
-                DeFi Vault
-              </a>
-              <p className="text-sm md:text-base text-gray-300">Smart contract-based yield optimization protocol with auto-compounding features</p>
-            </div>
-            <div>
-              <a 
-                href="https://github.com/yourusername/nft-marketplace" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-base md:text-lg font-semibold hover:text-blue-400 transition-colors"
-              >
-                NFT Marketplace
-              </a>
-              <p className="text-sm md:text-base text-gray-300">Decentralized marketplace for NFT trading with royalty management system</p>
-            </div>
+            {portfolioData.projects.map((project, index) => (
+              <div key={index}>
+                <a 
+                  href={project.url}
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-base md:text-lg font-semibold hover:text-blue-400 transition-colors"
+                >
+                  {project.name}
+                </a>
+                <p className="text-sm md:text-base text-gray-300">{project.description}</p>
+              </div>
+            ))}
           </div>
         </div>
 
@@ -173,10 +126,9 @@ const Index = () => {
             <h2 className="text-xl md:text-2xl font-bold">Achievements</h2>
           </div>
           <ul className="list-disc list-inside text-left text-sm md:text-base text-gray-300 space-y-2">
-            <li>Led team of 3 at Hackbout 1.0</li>
-            <li>Participated in 20+ CTF events</li>
-            <li>Top 20 teams in Secarmy CTF</li>
-            <li>Google Cloud Platform certified</li>
+            {portfolioData.achievements.map((achievement, index) => (
+              <li key={index}>{achievement}</li>
+            ))}
           </ul>
         </div>
 
@@ -184,19 +136,19 @@ const Index = () => {
         <div className="bento-card col-span-1 md:col-span-3">
           <h2 className="text-xl md:text-2xl font-bold mb-6">Let's Connect</h2>
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" 
+            <a href={portfolioData.socialLinks.github} target="_blank" rel="noopener noreferrer" 
                className="p-2 md:p-3 rounded-full hover:bg-gray-800 transition-colors">
               <Github className="w-6 h-6 md:w-8 md:h-8" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+            <a href={portfolioData.socialLinks.linkedin} target="_blank" rel="noopener noreferrer"
                className="p-2 md:p-3 rounded-full hover:bg-gray-800 transition-colors">
               <Linkedin className="w-6 h-6 md:w-8 md:h-8" />
             </a>
-            <a href="mailto:rohit.narahari@gmail.com"
+            <a href={`mailto:${portfolioData.profile.email}`}
                className="p-2 md:p-3 rounded-full hover:bg-gray-800 transition-colors">
               <Mail className="w-6 h-6 md:w-8 md:h-8" />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+            <a href={portfolioData.socialLinks.twitter} target="_blank" rel="noopener noreferrer"
                className="p-2 md:p-3 rounded-full hover:bg-gray-800 transition-colors">
               <Twitter className="w-6 h-6 md:w-8 md:h-8" />
             </a>
