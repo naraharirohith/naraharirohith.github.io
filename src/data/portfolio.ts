@@ -43,7 +43,7 @@ export const portfolioData = {
   projects: [
     {
       name: "MicroMission",
-      url: "https://github.com/yourusername/micromission",
+      url: "https://github.com/naraharirohith/Detask",
       description: "Web3 SaaS platform for microtask outsourcing with Solana-based payments"
     },
     {
@@ -53,18 +53,8 @@ export const portfolioData = {
     },
     {
       name: "Perpetual Protocol",
-      url: "https://github.com/yourusername/perpetual",
+      url: "https://github.com/naraharirohith/TradersX",
       description: "Decentralized perpetual futures protocol with liquidity management"
-    },
-    {
-      name: "DeFi Vault",
-      url: "https://github.com/yourusername/defi-vault",
-      description: "Smart contract-based yield optimization protocol with auto-compounding features"
-    },
-    {
-      name: "NFT Marketplace",
-      url: "https://github.com/yourusername/nft-marketplace",
-      description: "Decentralized marketplace for NFT trading with royalty management system"
     }
   ],
   achievements: [
@@ -74,8 +64,8 @@ export const portfolioData = {
     "Google Cloud Platform certified"
   ],
   socialLinks: {
-    github: "https://github.com",
-    linkedin: "https://linkedin.com",
-    twitter: "https://twitter.com"
+    github: "https://github.com/naraharirohith",
+    linkedin: "https://www.linkedin.com/in/rohith-narahari-40211818b/",
+    twitter: "https://x.com/rohit_narahari"
   }
 };
