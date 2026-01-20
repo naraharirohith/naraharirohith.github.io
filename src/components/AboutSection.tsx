@@ -168,27 +168,6 @@ export default function AboutSection() {
           </motion.div>
         </div>
 
-        {/* Anime-style workspace illustration */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-12 flex justify-center"
-        >
-          <div className="relative">
-            {/* Decorative elements */}
-            <div className="absolute -left-8 top-1/2 -translate-y-1/2 w-16 h-px bg-gradient-to-r from-transparent to-saffron-500/50" />
-            <div className="absolute -right-8 top-1/2 -translate-y-1/2 w-16 h-px bg-gradient-to-l from-transparent to-magenta-500/50" />
-
-            <div className="px-6 py-3 rounded-full bg-gradient-to-r from-saffron-500/10 via-magenta-500/10 to-sacred-500/10 border border-saffron-500/20">
-              <span className="text-sm text-temple-600 dark:text-temple-400">
-                Currently seeking{' '}
-                <span className="font-semibold text-gradient">Software Engineering & Blockchain Developer</span>
-                {' '}roles
-              </span>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

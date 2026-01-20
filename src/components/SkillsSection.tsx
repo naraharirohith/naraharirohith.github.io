@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import TiltCard from './TiltCard';
 
 const skillCategories = [
   {
@@ -151,8 +152,9 @@ export default function SkillsSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
-              className="glass-card p-6 card-lift card-shockwave relative overflow-hidden"
             >
+              <TiltCard className="h-full">
+              <div className="glass-card p-6 card-lift card-shockwave relative overflow-hidden h-full">
               {/* Decorative pattern corner */}
               <div className={`absolute -top-10 -right-10 w-32 h-32 rounded-full bg-gradient-to-br ${category.bgGradient} blur-2xl`} />
 
@@ -207,6 +209,8 @@ export default function SkillsSection() {
                   <circle cx="5" cy="35" r="2" fill="currentColor" className="text-sacred-500" />
                 </svg>
               </div>
+              </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>

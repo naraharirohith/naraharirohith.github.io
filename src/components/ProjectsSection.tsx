@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import TiltCard from './TiltCard';
 
 const projects = [
   {
@@ -135,8 +136,9 @@ export default function ProjectsSection() {
               transition={{ duration: 0.6, delay: 0.1 * index }}
               className={project.featured ? 'md:col-span-2' : ''}
             >
+              <TiltCard className="h-full">
               <div
-                className={`relative glass-card overflow-hidden card-lift card-shockwave group ${
+                className={`relative glass-card overflow-hidden card-lift card-shockwave group h-full ${
                   project.featured ? 'p-8' : 'p-6'
                 }`}
               >
@@ -241,6 +243,7 @@ export default function ProjectsSection() {
                   <div className="absolute bottom-2 left-2 w-8 h-0.5 bg-current rotate-45 origin-left translate-y-2" />
                 </div>
               </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>
